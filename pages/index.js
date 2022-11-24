@@ -10,7 +10,7 @@ export default function Home() {
   };
 
   return (
-    <div className='text-gray-600 font-body grid md:grid-cols-3'>
+    <div className='text-gray-600 font-sans grid md:grid-cols-3'>
       {/** content wrapper */}
       <Head>
         <title>Create Next App</title>
