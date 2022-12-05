@@ -79,7 +79,7 @@ export default function Navbar(props) {
                     <Link
                       href={item.href}
                       key={item.label}
-                      className='px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-500'
+                      className='px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-green-500 dark:hover:text-purple-800 transition-colors duration-300 ease-in-out'
                     >
                       {item.label}
                     </Link>
@@ -94,7 +94,7 @@ export default function Navbar(props) {
                     <Link
                       href={item.href}
                       key={`Mobile Menu ${item.label}`}
-                      className='px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-blue-500'
+                      className='px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-green-500 dark:hover:text-purple-800 transition-colors duration-300 ease-in-out'
                     >
                       {item.label}
                     </Link>
