@@ -37,7 +37,7 @@ export default function Home(props) {
                   alt: '',
                 },
               ],
-              site_name: 'Stablo',
+              siteName: 'Stablo',
             }}
             twitter={{
               cardType: 'summary_large_image',
