@@ -12,12 +12,9 @@ export default function AuthorCard({ author }) {
             <Image
               src={imageProps.src}
               loader={imageProps.loader}
-              blurDataURL={imageProps.blurDataURL}
-              objectFit='cover'
               alt={author.name}
-              placeholder='blur'
-              layout='fill'
-              className='rounded-full'
+              fill={true}
+              className='object-cover rounded-full'
             />
           )}
         </div>
