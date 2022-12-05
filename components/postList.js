@@ -29,8 +29,8 @@ export default function PostList({ post, aspect, preloadImage }) {
                 // blurDataURL={imageProps.blurDataURL}
                 // placeholder='blur'
                 alt={post.mainImage.alt || 'Thumbnail'}
-                fill={true}
                 sizes='80vw'
+                fill={true}
                 priority={preloadImage ? true : false}
                 className='transition-all object-cover'
               />
