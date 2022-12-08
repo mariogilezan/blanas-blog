@@ -26,13 +26,14 @@ export default function PostList({ post, aspect, preloadImage }) {
               <Image
                 src={imageProps.src}
                 loader={imageProps.loader}
+                width={imageProps.width}
+                height={imageProps.height}
                 // blurDataURL={imageProps.blurDataURL}
                 // placeholder='blur'
                 alt={post.mainImage.alt || 'Thumbnail'}
                 sizes='80vw'
-                fill={true}
                 priority={preloadImage ? true : false}
-                className='transition-all object-cover'
+                className='transition-all object-cover w-full h-full'
               />
             ) : (
               <span className='absolute w-16 h-16 text-gray-200 -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2'>
