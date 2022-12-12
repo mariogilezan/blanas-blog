@@ -32,7 +32,7 @@ export default function Navbar(props) {
               <div className='flex flex-wrap justify-between md:gap-10 md:flex-nowrap'>
                 {/* Logo & Mobile Menu Button */}
                 <div className='flex items-center justify-between w-full md:w-auto'>
-                  <Link href='/' className='w-28'>
+                  <Link href='/'>
                     {props.logo ? (
                       <Image
                         {...GetImage(props.logo)}
@@ -41,15 +41,13 @@ export default function Navbar(props) {
                         priority={true}
                       />
                     ) : (
-                      <span className='block text-center font-bold text-2xl'>
-                        Stablo
-                      </span>
+                      <span className='font-bold text-2xl'>Next Blog</span>
                     )}
                   </Link>
 
                   <Disclosure.Button
                     aria-label='Toggle Menu'
-                    className='px-2 py-1 ml-auto text-gray-500 rounded-md md:hidden focus:outline-none dark:text-gray-300'
+                    className='py-1 ml-auto text-gray-500 rounded-md md:hidden focus:outline-none dark:text-gray-300'
                   >
                     <svg
                       className='w-6 h-6 fill-current'
@@ -79,7 +77,7 @@ export default function Navbar(props) {
                     <Link
                       href={item.href}
                       key={item.label}
-                      className='px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-green-500 dark:hover:text-purple-800 transition-colors duration-300 ease-in-out'
+                      className='px-5 py-2 last:pr-0 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-green-500 dark:hover:text-purple-800 transition-colors duration-300 ease-in-out'
                     >
                       {item.label}
                     </Link>
@@ -89,12 +87,12 @@ export default function Navbar(props) {
               </div>
               {/* Mobile Navigation Links */}
               <Disclosure.Panel>
-                <div className='flex flex-col items-center justify-start order-2 w-full md:hidden'>
+                <div className='flex flex-col items-end sm:items-center justify-start order-2 w-full md:hidden pt-10'>
                   {mobileMenu.map((item) => (
                     <Link
                       href={item.href}
                       key={`Mobile Menu ${item.label}`}
-                      className='px-5 py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-green-500 dark:hover:text-purple-800 transition-colors duration-300 ease-in-out'
+                      className='py-2 text-sm font-medium text-gray-600 dark:text-gray-400 hover:text-green-500 dark:hover:text-purple-800 transition-colors duration-300 ease-in-out'
                     >
                       {item.label}
                     </Link>
