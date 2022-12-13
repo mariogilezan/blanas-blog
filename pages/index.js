@@ -22,7 +22,7 @@ export default function Home(props) {
       {posts && siteConfig && (
         <Layout {...siteConfig}>
           <NextSeo
-            title={siteConfig?.title}
+            title={`Home | ${siteConfig?.title}`}
             description={siteConfig?.description || ''}
             canonical={siteConfig?.url}
             openGraph={{
@@ -37,7 +37,7 @@ export default function Home(props) {
                   alt: '',
                 },
               ],
-              siteName: 'Stablo',
+              siteName: "Blana's Blog",
             }}
             twitter={{
               cardType: 'summary_large_image',
