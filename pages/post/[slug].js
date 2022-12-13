@@ -48,12 +48,12 @@ export default function Post(props) {
       {postData && siteConfig && (
         <Layout {...siteConfig}>
           <NextSeo
-            title={`${postData.title} - ${siteConfig.title}`}
+            title={`${postData.title} | ${siteConfig.title}`}
             description={postData.excerpt || ''}
             canonical={`${siteConfig?.url}/post/${postData.slug.current}`}
             openGraph={{
               url: `${siteConfig?.url}/post/${postData.slug.current}`,
-              title: `${postData.title} - ${siteConfig.title}`,
+              title: `${postData.title} | ${siteConfig.title}`,
               description: postData.excerpt || '',
               images: [
                 {
@@ -63,7 +63,7 @@ export default function Post(props) {
                   alt: '',
                 },
               ],
-              siteName: siteConfig.title,
+              siteName: siteConfig.title || "Blana's Blog",
             }}
             twitter={{
               cardType: 'summary_large_image',
