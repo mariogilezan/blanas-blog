@@ -5,7 +5,7 @@ export default function ThemeSwitch() {
   const { theme, setTheme } = useTheme();
 
   return (
-    <div className='inline-flex items-center'>
+    <div className='inline-flex items-center self-end'>
       <SunIcon className='w-4 h-4 mr-2' />
       <select
         name='themeSwitch'
