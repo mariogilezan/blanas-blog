@@ -21,8 +21,6 @@ export default function Navbar(props) {
     },
   ];
 
-  const mobileMenu = [...menu];
-
   return (
     <Container>
       <nav>
@@ -104,7 +102,7 @@ export default function Navbar(props) {
               {/* Mobile Navigation Links */}
               <Disclosure.Panel>
                 <div className='flex flex-col items-end sm:items-center justify-start order-2 w-full md:hidden pt-10'>
-                  {mobileMenu.map((item) => (
+                  {menu.map((item) => (
                     <Link
                       href={item.href}
                       key={`Mobile Menu ${item.label}`}
