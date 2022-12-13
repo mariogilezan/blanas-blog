@@ -1,5 +1,3 @@
-// import Link from 'next/link';
-
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import useWeb3forms from 'use-web3forms';
