@@ -32,16 +32,32 @@ export default function Navbar(props) {
               <div className='flex flex-wrap justify-between md:gap-10 md:flex-nowrap'>
                 {/* Logo & Mobile Menu Button */}
                 <div className='flex items-center justify-between w-full md:w-auto'>
-                  <Link href='/'>
+                  <Link href='/' className='hidden dark:block'>
                     {props.logo ? (
                       <Image
                         {...GetImage(props.logo)}
-                        alt='Logo'
+                        alt={props.logo.alt}
                         sizes='(max-width: 640px) 100vw, 200px'
                         priority={true}
                       />
                     ) : (
-                      <span className='font-bold text-2xl'>Next Blog</span>
+                      <span className='font-bold text-2xl'>
+                        Blana&apos;s Blog
+                      </span>
+                    )}
+                  </Link>
+                  <Link href='/' className='dark:hidden'>
+                    {props.logoalt ? (
+                      <Image
+                        {...GetImage(props.logoalt)}
+                        alt={props.logoalt.alt}
+                        sizes='(max-width: 640px) 100vw, 200px'
+                        priority={true}
+                      />
+                    ) : (
+                      <span className='font-bold text-2xl'>
+                        Blana&apos;s Blog
+                      </span>
                     )}
                   </Link>
 
