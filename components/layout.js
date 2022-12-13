@@ -32,8 +32,6 @@ export default function Layout(props) {
           site_name: props.title,
         }}
         twitter={{
-          handle: '@mario_zan93',
-          site: '@mario_zan93',
           cardType: 'summary_large_image',
         }}
       />
