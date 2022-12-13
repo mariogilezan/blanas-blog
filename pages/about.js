@@ -5,16 +5,44 @@ import Container from '../components/container';
 import GetImage from '../utils/getImage';
 import Image from 'next/image';
 import Link from 'next/link';
+import { NextSeo } from 'next-seo';
+import defaultOG from '../public/img/opengraph.jpg';
 
 export default function About({ authors, siteConfig }) {
+  const ogImage = siteConfig?.openGraphImage
+    ? GetImage(siteConfig?.openGraphImage).src
+    : defaultOG.src;
+
   return (
     <Layout {...siteConfig}>
+      <NextSeo
+        title={`About | ${siteConfig?.title}`}
+        description={siteConfig?.description || ''}
+        canonical={`${siteConfig?.url}/about/`}
+        openGraph={{
+          url: `${siteConfig?.url}/about/`,
+          title: `About | ${siteConfig?.title}`,
+          description: siteConfig?.description || '',
+          images: [
+            {
+              url: ogImage,
+              width: 800,
+              height: 800,
+              alt: '',
+            },
+          ],
+          siteName: siteConfig.title || "Blana's Blog",
+        }}
+        twitter={{
+          cardType: 'summary_large_image',
+        }}
+      />
       <Container>
         <h1 className='mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug lg:text-4xl dark:text-white'>
           About
         </h1>
         <div className='text-center'>
-          <p className='text-lg'>We are a small passionate team.</p>
+          <p className='text-lg'>More about what I do.</p>
         </div>
 
         <div className='grid grid-cols-3 gap-5 mt-6 mb-16 md:mt-16 md:gap-16'>
