@@ -82,7 +82,8 @@ export default function About({ authors, siteConfig }) {
           <p>
             <Link
               href='/contact'
-              className='hover:text-green-500 dark:hover:text-purple-800 transition-colors duration-300 ease-in-out'
+              className='hover:text-green-500 dark:hover:text-purple-600
+              active:text-green-600 dark:active:text-purple-800 transition-colors duration-300 ease-in-out'
             >
               Get in touch
             </Link>
