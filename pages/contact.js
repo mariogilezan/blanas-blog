@@ -12,6 +12,9 @@ import {
   EnvelopeIcon,
   PhoneIcon,
 } from '@heroicons/react/24/outline';
+import { NextSeo } from 'next-seo';
+import defaultOG from '../public/img/opengraph.jpg';
+import GetImage from '../utils/getImage';
 
 export default function Contact({ siteConfig }) {
   const {
@@ -43,24 +46,51 @@ export default function Contact({ siteConfig }) {
       setMessage(msg);
     },
   });
+
+  const ogImage = siteConfig?.openGraphImage
+    ? GetImage(siteConfig?.openGraphImage).src
+    : defaultOG.src;
+
   return (
     <Layout {...siteConfig}>
+      <NextSeo
+        title={`Contact | ${siteConfig?.title}`}
+        description={siteConfig?.description || ''}
+        canonical={`${siteConfig?.url}/contact/`}
+        openGraph={{
+          url: `${siteConfig?.url}/contact/`,
+          title: `Contact | ${siteConfig?.title}`,
+          description: siteConfig?.description || '',
+          images: [
+            {
+              url: ogImage,
+              width: 800,
+              height: 800,
+              alt: '',
+            },
+          ],
+          siteName: siteConfig.title || "Blana's Blog",
+        }}
+        twitter={{
+          cardType: 'summary_large_image',
+        }}
+      />
       <Container>
         <h1 className='mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug lg:text-4xl dark:text-white'>
           Contact
         </h1>
         <div className='text-center'>
-          <p className='text-lg'>We are here to help.</p>
+          <p className='text-lg'>I am here to help.</p>
         </div>
 
         <div className='grid my-10 md:grid-cols-2'>
           <div className='my-10'>
             <h2 className='text-2xl font-semibold dark:text-white'>
-              Contact Next Blog
+              Contact Me
             </h2>
             <p className='max-w-sm mt-5'>
-              Have something to say? We are here to help. Fill up the form or
-              send email or call phone.
+              Have something to say? I am here to help. Fill up the form or send
+              email or call phone.
             </p>
 
             <div className='mt-5'>
