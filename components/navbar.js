@@ -4,24 +4,10 @@ import Link from 'next/link';
 import GetImage from '../utils/getImage';
 import Container from './container';
 import { Bars2Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { navLinks } from './ui/navLinks';
 
 export default function Navbar(props) {
   const [open, setOpen] = useState(false);
-  const menuLinks = [
-    {
-      label: 'Home',
-      href: '/',
-    },
-    {
-      label: 'About',
-      href: '/about',
-    },
-    {
-      label: 'Contact',
-      href: '/contact',
-    },
-  ];
-
   const toggleMenu = () => setOpen(!open);
 
   return (
@@ -72,7 +58,7 @@ export default function Navbar(props) {
             {/* Logo & Mobile Button End */}
             {/* Navigation Links */}
             <div className='flex-col items-center justify-start order-1 hidden w-full md:flex md:flex-row md:justify-end md:w-auto md:order-none md:flex-1'>
-              {menuLinks.map((item) => (
+              {navLinks.map((item) => (
                 <Link
                   href={item.href}
                   key={item.label}
@@ -92,7 +78,7 @@ export default function Navbar(props) {
             } mt-2 flex flex-col items-end sm:items-center justify-start order-2 w-full md:hidden p-10 bg-gray-50 dark:bg-gray-900 rounded`}
             onClick={() => setOpen(false)}
           >
-            {menuLinks.map((item) => (
+            {navLinks.map((item) => (
               <Link
                 href={item.href}
                 key={`Mobile Menu ${item.label}`}
