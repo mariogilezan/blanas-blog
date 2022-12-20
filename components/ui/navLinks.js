@@ -1,11 +1,11 @@
 export const navLinks = [
   {
-    label: 'Home',
+    label: 'Acasă',
     href: '/',
   },
   {
-    label: 'About',
-    href: '/about',
+    label: 'Despre Mine',
+    href: '/despre-mine',
   },
   {
     label: 'Contact',
