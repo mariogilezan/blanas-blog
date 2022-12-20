@@ -1,5 +1,5 @@
 {
-  "name": "next-blog",
+  "name": "blanas-blog",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@headlessui/react": "^1.7.4",
     "@heroicons/react": "^2.0.13",
     "@portabletext/react": "^2.0.0",
     "@sanity/block-content-to-react": "^3.0.0",
