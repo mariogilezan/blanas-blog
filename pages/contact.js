@@ -5,11 +5,7 @@ import Container from '../components/container';
 import Layout from '../components/layout';
 import { configQuery } from '../lib/groq';
 import { getClient } from '../lib/sanity';
-import {
-  MapPinIcon,
-  EnvelopeIcon,
-  PhoneIcon,
-} from '@heroicons/react/24/outline';
+import { EnvelopeIcon } from '@heroicons/react/24/solid';
 import { NextSeo } from 'next-seo';
 import defaultOG from '../public/img/opengraph.jpg';
 import GetImage from '../utils/getImage';
@@ -77,47 +73,72 @@ export default function Contact({ siteConfig }) {
         <h1 className='mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug lg:text-4xl dark:text-white'>
           Contact
         </h1>
-        <div className='text-center'>
-          <p className='text-lg'>I am here to help.</p>
-        </div>
 
         <div className='grid my-10 md:grid-cols-2'>
           <div className='my-10'>
             <h2 className='text-2xl font-semibold dark:text-white'>
-              Contact Me
+              Contactează-mă
             </h2>
             <p className='max-w-sm mt-5'>
-              Have something to say? I am here to help. Fill up the form or send
-              email or call phone.
+              Pentru colaborări s-au dacă aveți propuneri, scrieți pe adresa de
+              e-mail ori mă puteți găsi pe rețelele de socializare de mai jos.
+              Alternativ, puteți completa formularul.
             </p>
 
-            <div className='mt-5'>
-              <div className='flex items-center mt-2 space-x-2 dark:text-gray-400'>
-                <MapPinIcon className='w-4 h-4' />
-                <span>1054 New York, NY 93301</span>
-              </div>
+            {/* Email and Socials */}
+            <div className='flex flex-col gap-5 mt-5'>
               {siteConfig?.email && (
-                <div className='flex items-center mt-2 space-x-2 dark:text-gray-400'>
+                <div className='flex items-center space-x-2 dark:text-gray-400'>
                   <EnvelopeIcon className='w-4 h-4' />
                   <a
                     href={`mailto:${siteConfig.email}`}
-                    className='hover:text-green-500 dark:hover:text-purple-800 transition-colors duration-300 ease-in-out'
+                    className='hover:text-green-500 dark:hover:text-purple-600
+                    transition-colors duration-300 ease-in-out font-semibold'
                   >
                     {siteConfig.email}
                   </a>
                 </div>
               )}
-              {siteConfig?.phone && (
-                <div className='flex items-center mt-2 space-x-2 dark:text-gray-400'>
-                  <PhoneIcon className='w-4 h-4' />
-                  <a
-                    href={`tel:${siteConfig.phone}`}
-                    className='hover:text-green-500 dark:hover:text-purple-800 transition-colors duration-300 ease-in-out'
+
+              {/* Social Links */}
+              <div className='flex items-center gap-3'>
+                <a
+                  href='https://www.facebook.com/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='social-link'
+                  style={{ backgroundColor: '#1877f2' }}
+                >
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    viewBox='0 0 320 512'
+                    className='w-4 h-4'
                   >
-                    {siteConfig.phone}
-                  </a>
-                </div>
-              )}
+                    <path
+                      fill='currentColor'
+                      d='M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z'
+                    />
+                  </svg>
+                </a>
+                <a
+                  href='https://www.instagram.com/'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='social-link'
+                  style={{ backgroundColor: '#c13584' }}
+                >
+                  <svg
+                    xmlns='http://www.w3.org/2000/svg'
+                    viewBox='0 0 448 512'
+                    className='w-4 h-4'
+                  >
+                    <path
+                      fill='currentColor'
+                      d='M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z'
+                    />
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
           <div>
@@ -133,7 +154,7 @@ export default function Contact({ siteConfig }) {
               <div className='mb-5'>
                 <input
                   type='text'
-                  placeholder='Full Name'
+                  placeholder='Nume'
                   autoComplete='false'
                   className={`w-full px-4 py-3 border-2 placeholder:text-gray-800 dark:text-white rounded-md outline-none dark:placeholder:text-gray-200 dark:bg-gray-900 focus:ring-4 ${
                     errors.name
@@ -141,7 +162,7 @@ export default function Contact({ siteConfig }) {
                       : 'border-gray-300 focus:border-gray-600 ring-gray-100 dark:border-gray-600 dark:focus:border-white dark:ring-0'
                   }`}
                   {...register('name', {
-                    required: 'Full name is required',
+                    required: 'Numele este obligatoriu',
                     maxLength: 80,
                   })}
                 />
@@ -154,12 +175,12 @@ export default function Contact({ siteConfig }) {
 
               <div className='mb-5'>
                 <label htmlFor='email_address' className='sr-only'>
-                  Email Address
+                  Email
                 </label>
                 <input
                   id='email_address'
                   type='email'
-                  placeholder='Email Address'
+                  placeholder='Email'
                   name='email'
                   autoComplete='false'
                   className={`w-full px-4 py-3 border-2 placeholder:text-gray-800 dark:text-white rounded-md outline-none dark:placeholder:text-gray-200 dark:bg-gray-900 focus:ring-4 ${
@@ -168,10 +189,11 @@ export default function Contact({ siteConfig }) {
                       : 'border-gray-300 focus:border-gray-600 ring-gray-100 dark:border-gray-600 dark:focus:border-white dark:ring-0'
                   }`}
                   {...register('email', {
-                    required: 'Enter your email',
+                    required: 'Introduceți adresa de email',
                     pattern: {
                       value: /^\S+@\S+$/i,
-                      message: 'Please enter a valid email',
+                      message:
+                        'Vă rugăm să introduceți o adresă de email validă',
                     },
                   })}
                 />
@@ -185,14 +207,14 @@ export default function Contact({ siteConfig }) {
               <div className='mb-3'>
                 <textarea
                   name='message'
-                  placeholder='Your Message'
+                  placeholder='Mesajul'
                   className={`w-full px-4 py-3 border-2 placeholder:text-gray-800 dark:text-white dark:placeholder:text-gray-200 dark:bg-gray-900 rounded-md outline-none h-36 focus:ring-4 ${
                     errors.message
                       ? 'border-red-600 focus:border-red-600 ring-red-100 dark:ring-0'
                       : 'border-gray-300 focus:border-gray-600 ring-gray-100 dark:border-gray-600 dark:focus:border-white dark:ring-0'
                   }`}
                   {...register('message', {
-                    required: 'Enter your Message',
+                    required: 'Introduceți mesajul',
                   })}
                 />
                 {errors.message && (
