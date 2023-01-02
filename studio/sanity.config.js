@@ -4,10 +4,13 @@ import { visionTool } from '@sanity/vision';
 import schemas from './schemas/schema';
 import deskStructure from './src/deskStructure';
 
+import { config } from './lib/config';
+const { dataset, projectId } = config;
+
 export default defineConfig({
   title: 'studio',
-  projectId: 'hi18u6ms',
-  dataset: 'production',
+  projectId,
+  dataset,
   plugins: [
     deskTool({
       structure: deskStructure,
