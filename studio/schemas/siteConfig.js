@@ -2,7 +2,6 @@ export default {
   name: 'siteconfig',
   title: 'Site Settings',
   type: 'document',
-  __experimental_actions: ['create', 'delete', 'update', 'publish'],
   fieldsets: [
     {
       name: 'metadata',
@@ -56,9 +55,6 @@ export default {
           title: 'Alternative text',
           type: 'string',
           description: 'Important for SEO and accessiblity.',
-          options: {
-            isHighlighted: true,
-          },
         },
       ],
     },
@@ -76,9 +72,6 @@ export default {
           title: 'Alternative text',
           type: 'string',
           description: 'Important for SEO and accessiblity.',
-          options: {
-            isHighlighted: true,
-          },
         },
       ],
     },

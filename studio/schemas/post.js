@@ -45,9 +45,6 @@ export default {
           title: 'Alternative text',
           type: 'string',
           description: 'Important for SEO and accessibility.',
-          options: {
-            isHighlighted: true,
-          },
         },
       ],
       options: {

@@ -1,4 +1,3 @@
-import S from '@sanity/desk-tool/structure-builder';
 import {
   HiOutlineCog,
   HiOutlineClipboardList,
@@ -13,7 +12,7 @@ import {
 
 const hiddenDocTypes = (listItem) => !['siteconfig'].includes(listItem.getId());
 
-export default () =>
+export default (S) =>
   S.list()
     .title('Content Manager')
     .items([
