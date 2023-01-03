@@ -13,21 +13,8 @@ import { format, parseISO } from 'date-fns';
 import Link from 'next/link';
 import AuthorCard from '../../components/blog/authorCard';
 
-export default function Post(props) {
-  const { postData, siteConfig, preview } = props;
+export default function Post({ postData, siteConfig }) {
   const router = useRouter();
-  const { slug } = router.query;
-  // TODO: usePreviewSubscription functionality
-  // const { data: post } = usePreviewSubscription(singlequery, {
-  //   params: { slug: slug },
-  //   initialData: postdata,
-  //   enabled: preview || router.query.preview !== undefined
-  // });
-
-  // const { data: siteConfig } = usePreviewSubscription(configQuery, {
-  //   initialData: siteconfig,
-  //   enabled: preview || router.query.preview !== undefined
-  // });
 
   if (!router.isFallback && !postData?.slug) {
     return <Error statusCode={404} title='sup' />;
@@ -162,7 +149,6 @@ export async function getStaticProps({ params, preview = false }) {
     props: {
       postData: { ...post },
       siteConfig: { ...config },
-      preview,
     },
     revalidate: 10,
   };
