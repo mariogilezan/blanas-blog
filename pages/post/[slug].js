@@ -138,9 +138,9 @@ export default function Post(props) {
               <div className='flex justify-center mt-7 mb-7'>
                 <Link
                   href='/'
-                  className='px-5 py-2 text-sm text-blue-600 rounded-full dark:text-blue-500'
+                  className='px-5 py-2 text-sm text-green-600 rounded-full dark:text-purple-500 font-semibold'
                 >
-                  ← View all posts
+                  &larr; View all posts
                 </Link>
               </div>
               {postData.author && <AuthorCard author={postData.author} />}
