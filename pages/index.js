@@ -98,7 +98,7 @@ export default function Home({ siteConfig, initialPosts, total }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getStaticProps() {
   const config = await getClient(false).fetch(configQuery);
   const { posts: initialPosts, total } = await loadData(0, LOAD_MORE_STEP);
 
