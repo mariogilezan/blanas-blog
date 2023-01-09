@@ -44,6 +44,12 @@ export default function Contact({ siteConfig }) {
   const ogImage = siteConfig?.openGraphImage
     ? GetImage(siteConfig?.openGraphImage).src
     : defaultOG.src;
+  const fbData =
+    siteConfig.social.find((link) => link.media === 'facebook') ||
+    'https://www.facebook.com/';
+  const igData =
+    siteConfig.social.find((link) => link.media === 'instagram') ||
+    'https://www.instagram.com/';
 
   return (
     <Layout {...siteConfig}>
@@ -103,7 +109,7 @@ export default function Contact({ siteConfig }) {
               {/* Social Links */}
               <div className='flex items-center gap-3'>
                 <a
-                  href='https://www.facebook.com/'
+                  href={fbData.url}
                   target='_blank'
                   rel='noopener noreferrer'
                   className='social-link'
@@ -121,7 +127,7 @@ export default function Contact({ siteConfig }) {
                   </svg>
                 </a>
                 <a
-                  href='https://www.instagram.com/'
+                  href={igData.url}
                   target='_blank'
                   rel='noopener noreferrer'
                   className='social-link'
@@ -250,7 +256,7 @@ export default function Contact({ siteConfig }) {
                     />
                   </svg>
                 ) : (
-                  'Send Message'
+                  'Trimite'
                 )}
               </button>
             </form>
