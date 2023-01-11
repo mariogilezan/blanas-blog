@@ -119,5 +119,6 @@ export async function getStaticProps() {
       initialPosts,
       total,
     },
+    revalidate: 10,
   };
 }
