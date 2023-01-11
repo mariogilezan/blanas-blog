@@ -28,8 +28,8 @@ export default function Contact({ siteConfig }) {
 
   const { submit: onSubmit } = useWeb3forms({
     apikey: apiKey,
-    from_name: 'Next Blog Template',
-    subject: 'New Contact Message from Next Blog Website',
+    from_name: "Blana's Blog",
+    subject: "New Contact Message from Blana's Blog",
     onSuccess: (msg, data) => {
       setIsSuccess(true);
       setMessage(msg);
@@ -213,7 +213,7 @@ export default function Contact({ siteConfig }) {
               <div className='mb-3'>
                 <textarea
                   name='message'
-                  placeholder='Mesajul'
+                  placeholder='Mesaj'
                   className={`w-full px-4 py-3 border-2 placeholder:text-gray-800 dark:text-white dark:placeholder:text-gray-200 dark:bg-gray-900 rounded-md outline-none h-36 focus:ring-4 ${
                     errors.message
                       ? 'border-red-600 focus:border-red-600 ring-red-100 dark:ring-0'
@@ -263,12 +263,13 @@ export default function Contact({ siteConfig }) {
 
             {isSubmitSuccessful && isSuccess && (
               <div className='mt-3 text-sm text-center text-green-500'>
-                {message || 'Success. Message sent successfully'}
+                {message || 'Succes. Mesaj trimis!'}
               </div>
             )}
             {isSubmitSuccessful && !isSuccess && (
               <div className='mt-3 text-sm text-center text-red-500'>
-                {message || 'Something went wrong. Please try later.'}
+                {message ||
+                  'Ceva n-a mers bine. Vă rugăm să încercați mai târziu.'}
               </div>
             )}
           </div>
