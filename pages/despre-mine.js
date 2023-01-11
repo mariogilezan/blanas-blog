@@ -85,7 +85,7 @@ export default function DespreMine({ authors, siteConfig }) {
               className='hover:text-green-500 dark:hover:text-purple-600
               active:text-green-600 dark:active:text-purple-800 transition-colors duration-300 ease-in-out'
             >
-              Get in touch
+              Contact
             </Link>
           </p>
         </div>
