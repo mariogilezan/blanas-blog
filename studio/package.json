@@ -1,7 +1,7 @@
 {
-  "name": "studio",
+  "name": "blanas-blog-studio",
   "private": true,
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "",
   "main": "package.json",
   "author": "Mario Gilezan <mariogilezan10@gmail.com>",
