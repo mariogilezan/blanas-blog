@@ -1,14 +1,14 @@
-import { defineConfig } from 'sanity';
-import { deskTool } from 'sanity/desk';
-import { visionTool } from '@sanity/vision';
-import schemas from './schemas/schema';
-import deskStructure from './src/deskStructure';
+import {defineConfig} from 'sanity'
+import {deskTool} from 'sanity/desk'
+import {visionTool} from '@sanity/vision'
+import schemas from './schemas/schema'
+import deskStructure from './src/deskStructure'
 
-import { config } from './lib/config';
-const { dataset, projectId } = config;
+import {config} from './lib/config'
+const {dataset, projectId} = config
 
 export default defineConfig({
-  title: 'studio',
+  title: 'blanasBlog-studio',
   projectId,
   dataset,
   plugins: [
@@ -18,34 +18,28 @@ export default defineConfig({
     visionTool(),
   ],
   tools: (prev, context) => {
-    const isAdmin = context.currentUser.roles.find(
-      ({ name }) => name === 'administrator'
-    );
+    const isAdmin = context.currentUser.roles.find(({name}) => name === 'administrator')
     if (isAdmin) {
-      return prev;
+      return prev
     }
-    return prev.filter((tool) => tool.name !== 'vision');
+    return prev.filter((tool) => tool.name !== 'vision')
   },
   schema: {
     types: schemas,
   },
   document: {
-    newDocumentOptions: (prev, { creationContext }) => {
+    newDocumentOptions: (prev, {creationContext}) => {
       if (creationContext.type === 'global') {
-        return prev.filter(
-          (templateItem) => templateItem.templateId !== 'siteconfig'
-        );
+        return prev.filter((templateItem) => templateItem.templateId !== 'siteconfig')
       }
 
-      return prev;
+      return prev
     },
-    actions: (prev, { schemaType }) => {
+    actions: (prev, {schemaType}) => {
       if (schemaType === 'siteconfig') {
-        return prev.filter(
-          ({ action }) => !['unpublish', 'delete', 'duplicate'].includes(action)
-        );
+        return prev.filter(({action}) => !['unpublish', 'delete', 'duplicate'].includes(action))
       }
-      return prev;
+      return prev
     },
   },
-});
+})
